@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://d30lpvljhcafw"]
+[gd_scene load_steps=7 format=3 uid="uid://d30lpvljhcafw"]
 
 [ext_resource type="Script" uid="uid://dx3t7k5fdqd8n" path="res://scenes/game.gd" id="1_lbhrr"]
 [ext_resource type="Texture2D" uid="uid://c0vs0di8xvo56" path="res://assets/GameBg.png" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://cuxp8hdxru751" path="res://scenes/paddle.tscn" id="2_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://bhfsgn7ah4fdo" path="res://scenes/gem.tscn" id="3_lnu2h"]
+[ext_resource type="AudioStream" uid="uid://dfo4onkfyhmi5" path="res://assets/bgm_action_5.mp3" id="5_iywne"]
+[ext_resource type="AudioStream" uid="uid://ubtw0dsp0rl5" path="res://assets/spell1_0.wav" id="6_p57ef"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_lbhrr")
@@ -35,6 +37,14 @@ theme_override_constants/shadow_offset_y = 1
 theme_override_constants/outline_size = 3
 theme_override_font_sizes/font_size = 48
 text = "000"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_iywne")
+volume_db = -16.0
+autoplay = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_p57ef")
 
 [connection signal="area_entered" from="Paddle" to="." method="_on_paddle_area_entered"]
 [connection signal="area_entered" from="Paddle" to="Paddle" method="_on_area_entered"]
