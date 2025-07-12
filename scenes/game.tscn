@@ -22,5 +22,20 @@ speed = 200.0
 wait_time = 2.0
 autostart = true
 
+[node name="Label" type="Label" parent="."]
+offset_left = 15.0
+offset_top = 11.0
+offset_right = 172.0
+offset_bottom = 70.0
+theme_override_colors/font_color = Color(0.898311, 0.413551, 0.840278, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 48
+text = "000"
+
+[connection signal="area_entered" from="Paddle" to="." method="_on_paddle_area_entered"]
 [connection signal="area_entered" from="Paddle" to="Paddle" method="_on_area_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
